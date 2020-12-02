@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CurrentNewCreature from '../CurrentNewCreature/CurrentNewCreature.js'
 import CreatureList from '../CreatureList/CreatureList.jsx'
+import CreatureForm from '../CreatureForm/CreatureForm.jsx';
 
 class App extends Component {
 
@@ -71,23 +72,13 @@ class App extends Component {
           taco="delicious"
           pendingCreature = {this.state.newCreature}
         />
-        <div>
-          <input value={this.state.newCreature.name} placeholder="name" onChange={this.handleNameChange}></input>
-          <input value={this.state.newCreature.origin} placeholder="origin" onChange={this.handleOriginChange}></input>
-        <button onClick={this.addCreature}>ADD new Creature</button>
-        </div>
-    
-      <ul>
-        {this.state.creatureList.map((creature, i)=>{
-      return (
-        <li key={creature.name}>   {/*can also use a key of {i}*/}
-          Creature: {creature.name}
-          </li>
-      )
-    })}
-
-
-      </ul>
+        <CreatureList creatureList={this.state.creatureList}/>
+        <CreatureForm 
+          newCreature={this.state.newCreature} 
+          handleNameChange={this.handleNameChange}
+          addCreature={this.addCreature}
+          handleOriginChange={this.handleOriginChange}
+        />
       </div>
     );//end return
   }

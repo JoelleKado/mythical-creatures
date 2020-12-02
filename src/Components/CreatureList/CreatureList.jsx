@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CreatureItem from '../CreatureItem/CreatureItem.jsx'
 
 class CreatureList extends Component {
     render() {
@@ -9,9 +10,8 @@ class CreatureList extends Component {
                 <ul>
                     {this.props.creatureList.map((creature, i)=>{
                         return (
-                        <li key={creature.name}> {/*can also use a key of {i}*/}
-                            Creature: {creature.name}
-                        </li>
+                            //make a bunch of creature items
+                            <CreatureItem key={i} creature={creature}/>
                         )
                     })}
                 </ul>
